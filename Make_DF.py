@@ -18,6 +18,6 @@ if __name__ == "__main__":
         print("DataFrame created successfully:")
         print(df)
         #Saved to CSV top open in excel and decide what analysis to do.
-        df.to_csv("Top_Stores_NYT.csv",index=False)
+        df.to_csv("Top_Stories_NYT.csv",index=False)
     else:
         print("Failed to get data from Redis.")
