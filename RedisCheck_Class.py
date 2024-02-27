@@ -1,6 +1,8 @@
 from Connection import get_redis_connection
 
 class RedisKeyChecker:
+    """Python class to help check if your key is in the Redis DB
+    """    
     def __init__(self):
         r = get_redis_connection()
         self.redis_client = r

@@ -18,12 +18,22 @@ api_key = API_KEY
 nyt = NYTAPI(api_key, parse_dates=True)
 
 def get_data_from_api():
+    """Get's data from the API
+
+    Returns:
+        _type_: str array
+    """    
     top_stories = nyt.top_stories()  
     top_stories = top_stories[:10]
     #print(top_story)
     return top_stories  
 
 def insert_into_redis(data):
+    """Puts the json data into the redis DB
+
+    Args:
+        data (any): the acutal json data from the api
+    """    
     api_data = get_data_from_api()
     if api_data:
         for story in api_data:
@@ -36,6 +46,8 @@ def insert_into_redis(data):
         print("Failed to get API data.")
 
 if __name__ == "__main__":
+    """Clears the DB, and calls the insert function above
+    """    
     # Connect to Redis
     r = get_redis_connection()
     r.flushall()

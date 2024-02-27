@@ -3,6 +3,14 @@ import json
 import pandas as pd
 
 def get_data_from_redis(redis_client):
+    """Pulls the data from the redis DB
+
+    Args:
+        redis_client (Any): The redis connection
+
+    Returns:
+        json data: The actual json data from the DB
+    """    
     json_data = redis_client.get('api_data')
     if json_data:
         return json.loads(json_data)
@@ -11,6 +19,8 @@ def get_data_from_redis(redis_client):
         return None
 
 if __name__ == "__main__":
+    """Stores the data from the db to a pandas dataframe and then saves it as a .csv file
+    """    
     r = get_redis_connection()
     data = get_data_from_redis(r)
     if data:

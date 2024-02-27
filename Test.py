@@ -1,5 +1,7 @@
 from Connection import get_redis_connection
 
+"""Checking to make sure that the redis connection is correct and working
+"""
 r = get_redis_connection()
 
 r.flushall()
