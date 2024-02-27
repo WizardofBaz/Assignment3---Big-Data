@@ -26,11 +26,11 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 
 sia = SentimentIntensityAnalyzer()
 
-def get_tweet_sentiment(text):
+def get_sentiment(text):
   #print(text)
   return text
 
-df['abstract'].apply(lambda x: get_tweet_sentiment(' '.join(x)))
+df['abstract'].apply(lambda x: get_sentiment(' '.join(x)))
 
 for column in df:
     columnSeriesObj = df["abstract"]
