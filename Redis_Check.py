@@ -1,10 +1,10 @@
 # main.py
-from Redis_Check import RedisKeyChecker
+from RedisCheck_Class import RedisKeyChecker
 
 def main():
     key_checker = RedisKeyChecker()
 
-    key_to_check = "api_data"
+    key_to_check = "name"
 
     # Check if the key exists in the Redis database
     key_checker.check_key(key_to_check)
